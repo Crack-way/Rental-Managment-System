@@ -10,14 +10,13 @@ import com.rentmangementsystem.payment.dto.PaymentDto;
 import com.rentmangementsystem.payment.entity.Payment;
 import com.rentmangementsystem.payment.repo.PaymentRepo;
 import com.rentmangementsystem.property.service.PropertyServiceImpl;
-import com.rentmangementsystem.tenant.entity.Tenant;
 import com.rentmangementsystem.tenant.service.TenantServiceImpl;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
+
 import java.util.Date;
-import java.util.List;
 
 @Service
 public class PaymentServiceImpl implements PaymentService {
@@ -48,6 +47,8 @@ public class PaymentServiceImpl implements PaymentService {
         Landlord landlord = landlordService.findByAccountNo(paymentDto.getLandlordAccountNo()).get();
         paymentDto.setLandlord(landlord);
         Payment payment = paymentRepo.save(mapper.toPayment(paymentDto));
+
+        propertyService.updatePropertyStatus("inLease",paymentDto.getPropertyId());
 
         Lease lease = new Lease();
         lease.setTenant(payment.getTenant());

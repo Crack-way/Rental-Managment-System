@@ -3,11 +3,15 @@ package com.rentmangementsystem.contact.entity;
 
 import com.rentmangementsystem.landlord.entity.Landlord;
 import com.rentmangementsystem.tenant.entity.Tenant;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
+
 
 @Entity
 @Data

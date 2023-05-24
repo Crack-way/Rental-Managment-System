@@ -2,11 +2,12 @@ package com.rentmangementsystem.tenant.entity;
 
 
 import com.rentmangementsystem.contact.entity.Contact;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
+
 
 @Entity
 @Data

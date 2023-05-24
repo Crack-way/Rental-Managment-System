@@ -3,13 +3,13 @@ package com.rentmangementsystem.lease.entity;
 
 import com.rentmangementsystem.property.entity.Property;
 import com.rentmangementsystem.tenant.entity.Tenant;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
 import java.util.Date;
-import java.util.List;
+
 
 @Entity
 @Data

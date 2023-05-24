@@ -4,9 +4,10 @@ package com.rentmangementsystem.property.entity;
 import com.rentmangementsystem.landlord.entity.Landlord;
 import com.rentmangementsystem.property.enums.PropertyStatus;
 import com.rentmangementsystem.property.enums.PropertyType;
+import jakarta.persistence.*;
 import lombok.*;
 
-import javax.persistence.*;
+
 
 
 @Entity
