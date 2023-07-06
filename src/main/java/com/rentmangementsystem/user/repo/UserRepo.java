@@ -1,6 +1,6 @@
 package com.rentmangementsystem.user.repo;
 
-import com.rentmangementsystem.user.User;
+import com.rentmangementsystem.user.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

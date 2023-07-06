@@ -1,4 +1,4 @@
-package com.rentmangementsystem.auth;
+package com.rentmangementsystem.auth.dto;
 
 
 import lombok.AllArgsConstructor;
@@ -10,8 +10,12 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class AuthenticationRequest {
+public class RegisterRequest {
 
     private String username;
+
     private String password;
+
+    private String gmail;
+
 }

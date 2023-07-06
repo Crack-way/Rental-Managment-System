@@ -2,5 +2,5 @@ package com.rentmangementsystem.property.enums;
 
 public enum PropertyStatus {
 
-    inLease,isAvailable
+    inLease, isAvailable
 }

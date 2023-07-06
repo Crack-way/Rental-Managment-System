@@ -8,27 +8,31 @@ import com.rentmangementsystem.payment.dto.PaymentDto;
 import com.rentmangementsystem.payment.service.PaymentServiceImpl;
 import com.rentmangementsystem.property.dtos.ResponsePropertyDto;
 import com.rentmangementsystem.property.service.PropertyServiceImpl;
+import lombok.RequiredArgsConstructor;
+import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@RequestMapping("api/rent")
+@RequiredArgsConstructor
 public class RentController {
-    @Autowired
-    private LandlordServiceImpl landlordService;
 
-    @Autowired
-    private PropertyServiceImpl propertyService;
+    private final LandlordServiceImpl landlordService;
 
-    @Autowired
-    private PaymentServiceImpl paymentService;
+    private final PropertyServiceImpl propertyService;
+
+    private final PaymentServiceImpl paymentService;
 
 
     @PostMapping(value = "/addLandlord")
-    public LandlordDto addLandlord(@RequestBody LandlordDto landlordDto) {
+    public ResponseEntity<LandlordDto> addLandlord(@RequestBody LandlordDto landlordDto) {
 
-        return landlordService.addLandlord(landlordDto);
+        return ResponseEntity.ok(landlordService.addLandlord(landlordDto));
 
 
     }

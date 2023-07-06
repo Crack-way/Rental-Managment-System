@@ -1,4 +1,4 @@
-package com.rentmangementsystem.auth;
+package com.rentmangementsystem.auth.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

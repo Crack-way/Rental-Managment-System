@@ -1,6 +1,10 @@
-package com.rentmangementsystem.auth;
+package com.rentmangementsystem.auth.controller;
 
 
+import com.rentmangementsystem.auth.dto.AuthenticationRequest;
+import com.rentmangementsystem.auth.dto.AuthenticationResponse;
+import com.rentmangementsystem.auth.service.AuthenticationService;
+import com.rentmangementsystem.auth.dto.RegisterRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,28 +21,18 @@ public class AuthenticationController {
     private final AuthenticationService authenticationService;
 
 
-
-
     @PostMapping("/register")
-    public ResponseEntity<AuthenticationResponse> register(@
-        RequestBody RegisterRequest request){
+    public ResponseEntity<AuthenticationResponse> register(@RequestBody RegisterRequest request) {
 
-      return ResponseEntity.ok(authenticationService.register(request))
-;    }
+        return ResponseEntity.ok(authenticationService.register(request));
+    }
 
     @PostMapping("/authenticate")
-
-    public ResponseEntity<AuthenticationResponse> register(
-            @RequestBody AuthenticationRequest request
-
-
-    ){
+    public ResponseEntity<AuthenticationResponse> authenticate(@RequestBody AuthenticationRequest request) {
 
         return ResponseEntity.ok(authenticationService.authenticate(request));
 
     }
-
-
 
 
 }

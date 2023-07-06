@@ -1,4 +1,4 @@
-package com.rentmangementsystem.user;
+package com.rentmangementsystem.user.entity;
 
 import com.rentmangementsystem.role.Role;
 import jakarta.persistence.*;
@@ -30,13 +30,15 @@ public class User implements UserDetails {
 
     private String password;
 
+    private String gmail;
+
     @Enumerated(EnumType.STRING)
     private Role role;
 
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority(role.name()));
+        return List.of(new SimpleGrantedAuthority("ROLE_" + role.name()));
     }
 
     @Override

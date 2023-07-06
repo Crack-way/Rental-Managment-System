@@ -1,6 +1,7 @@
 package com.rentmangementsystem.property.dtos;
 
 import lombok.*;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -10,8 +11,6 @@ public class PropertyDto {
     private String address;
 
     private Double rentAmount;
-
-
 
 
 }

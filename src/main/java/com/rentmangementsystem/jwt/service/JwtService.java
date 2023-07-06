@@ -1,4 +1,4 @@
-package com.rentmangementsystem.jwt;
+package com.rentmangementsystem.jwt.service;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
@@ -48,9 +48,9 @@ public class JwtService {
     }
 
 
-    public boolean isTokenValid(String token, UserDetails userDetails){
+    public boolean isTokenValid(String token, UserDetails userDetails) {
 
-        final String username=extractUsername(token);
+        final String username = extractUsername(token);
 
         return (username.equals(userDetails.getUsername())) && !isTokenExpired(token);
     }
@@ -62,7 +62,7 @@ public class JwtService {
 
     private Date extractExpiration(String token) {
 
-        return extractClaim(token,Claims::getExpiration);
+        return extractClaim(token, Claims::getExpiration);
     }
 
     public <T> T extractClaim(String token

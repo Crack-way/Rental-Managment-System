@@ -20,41 +20,40 @@ public class PropertyServiceImpl implements PropertyService {
     @Autowired
     private PropertyRepo propertyRepo;
 
-    private Mapper mapper=new MapperImpl();
+    private Mapper mapper = new MapperImpl();
 
 
     @Secured("ROLE_LANDLORD")
-    public List<ResponsePropertyDto> getAllProperty(){
-         List<Property> propertyList= propertyRepo.findAll();
-         List<ResponsePropertyDto> responsePropertyDto=new ArrayList<>();
+    public List<ResponsePropertyDto> getAllProperty() {
+        List<Property> propertyList = propertyRepo.findAll();
+        List<ResponsePropertyDto> responsePropertyDto = new ArrayList<>();
 
-         for(Property property:propertyList){
+        for (Property property : propertyList) {
 
             responsePropertyDto.add(mapper.toResponsePropertyDto(property));
 
-         }
-         return responsePropertyDto;
+        }
+        return responsePropertyDto;
     }
 
 
-    public String findPropertyStatus(Long propertyId){
+    public String findPropertyStatus(Long propertyId) {
 
-       return String.valueOf(propertyRepo.findById(propertyId).get().getPropertyStatus());
+        return String.valueOf(propertyRepo.findById(propertyId).get().getPropertyStatus());
     }
 
-    public Optional<Property> getProperty(Long propertyId){
+    public Optional<Property> getProperty(Long propertyId) {
 
         return propertyRepo.findById(propertyId);
     }
 
-    public void updatePropertyStatus(String status,Long propertyId){
-        Property property= propertyRepo.findById(propertyId).orElseThrow(null);
+    public void updatePropertyStatus(String status, Long propertyId) {
+        Property property = propertyRepo.findById(propertyId).orElseThrow(null);
 
-        if(status.equals("inLease")){
+        if (status.equals("inLease")) {
 
             property.setPropertyStatus(PropertyStatus.inLease);
-        }
-        else{
+        } else {
             property.setPropertyStatus(PropertyStatus.isAvailable);
         }
         propertyRepo.save(property);

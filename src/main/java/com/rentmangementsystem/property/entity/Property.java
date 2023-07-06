@@ -7,9 +7,6 @@ import com.rentmangementsystem.property.enums.PropertyType;
 import jakarta.persistence.*;
 import lombok.*;
 
-
-
-
 @Entity
 @Getter
 @Setter
@@ -33,9 +30,8 @@ public class Property {
     private PropertyStatus propertyStatus;
 
     @ManyToOne
-    @JoinColumn(name="landLord_Id")
+    @JoinColumn(name = "landLord_Id")
     private Landlord landlord;
-
 
 
 }
